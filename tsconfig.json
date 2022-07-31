@@ -6,7 +6,7 @@
       "jsx": "preserve",
       "esModuleInterop": true,
       "sourceMap": true,
-      "allowJs": true,
+      "allowJs": false,
       "lib": [
         "es6",
         "dom"

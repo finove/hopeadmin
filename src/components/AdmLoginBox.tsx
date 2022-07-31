@@ -45,12 +45,12 @@ export default function NlkLoginBox() {
         setLoginInfo({ login: !loginInfo.login, name: '未登录' });
     }
     const handleLoginMode = (v: string) => setLoginInfo({ mode: v });
-    const showNotification = (msgData : string) => {
+    const showNotification = (msgData: string) => {
         notificationService.show({
-          title: "Login Info",
-          description: msgData,
+            title: "Login Info",
+            description: msgData,
         })
-      }
+    }
 
     return (
         <Show
@@ -144,7 +144,10 @@ export default function NlkLoginBox() {
                                     <Button onclick={onClose}>取消</Button>
                                     <Button onClick={() => {
                                         // alert(JSON.stringify(loginInfo));
-                                        showNotification(JSON.stringify(loginInfo, null , "    "));
+                                        showNotification(JSON.stringify(loginInfo, null, "    "));
+                                        axios.get("/mock/api/getstatuslist").then((res) => {
+                                            console.log(res);
+                                        });
                                         let postData = {};
                                         if (loginInfo.mode == '1') {
                                             postData["phone"] = loginInfo.phone;
